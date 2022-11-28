@@ -1,0 +1,24 @@
+{
+  "name": "discordjs-v14-template",
+  "version": "0.1.0",
+  "description": "A basic template for building a discord bot using discord.js v14 and typescript.",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node .",
+    "dev": "tsx watch ./src/index.ts",
+    "build": "tsc"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "16.11.64",
+    "tsx": "^3.10.1",
+    "typescript": "4.7.4"
+  },
+  "dependencies": {
+    "discord.js": "^14.6.0",
+    "dotenv": "^16.0.3",
+    "envalid": "^7.3.1"
+  }
+}
