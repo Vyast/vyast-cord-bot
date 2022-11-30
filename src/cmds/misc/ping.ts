@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "discord.js";
-import { SlashCommand } from "../../types/discord";
+import { type SlashCommand } from "~/types/discord";
 
 const Ping: SlashCommand = {
   data: new SlashCommandBuilder()
@@ -8,7 +8,7 @@ const Ping: SlashCommand = {
   async execute(interaction) {
     await interaction.reply({
       ephemeral: true,
-      content: `Pong! ${interaction.client.ws}`,
+      content: `Pong! ${interaction.client.ws.ping}ms`,
     });
   },
 };

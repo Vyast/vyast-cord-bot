@@ -1,7 +1,7 @@
 {
   "name": "vyast-cord-bot",
   "version": "1.0.0",
-  "description": "A basic template for building a discord bot using discord.js v14 and typescript.",
+  "description": "Bot for discord.gg/vyast",
   "main": "dist/index.js",
   "scripts": {
     "start": "node .",

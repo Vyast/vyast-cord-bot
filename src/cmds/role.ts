@@ -1,9 +1,9 @@
 import {
   ActionRowBuilder,
   SlashCommandBuilder,
-  SelectMenuBuilder,
+  RoleSelectMenuBuilder,
 } from "discord.js";
-import { SlashCommand } from "../types/discord";
+import { type SlashCommand } from "~/types/discord";
 
 const Role: SlashCommand = {
   data: new SlashCommandBuilder()
@@ -11,26 +11,19 @@ const Role: SlashCommand = {
     .setDescription("Select your roles")
     .setDMPermission(false),
   async execute(interaction) {
-    const row = new ActionRowBuilder<SelectMenuBuilder>().addComponents(
-      new SelectMenuBuilder()
-        .setCustomId("roles")
-        .setPlaceholder("Nothing selected")
-
-        .addOptions(
-          {
-            label: "Select me",
-            description: "This is a description",
-            value: "first_option",
-          },
-          {
-            label: "You can select me too",
-            description: "This is also a description",
-            value: "second_option",
-          }
-        )
+    const row = new ActionRowBuilder<RoleSelectMenuBuilder>().addComponents(
+      new RoleSelectMenuBuilder()
+        .setCustomId("role_select")
+        .setPlaceholder("Select your roles")
+        .setMinValues(1)
+        .setMaxValues(5)
     );
 
-    await interaction.reply({ content: "Pong!", components: [row] });
+    await interaction.reply({
+      content: "Pong!",
+      components: [row],
+      ephemeral: true,
+    });
   },
 };
 

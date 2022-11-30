@@ -1,14 +1,26 @@
-import { ChatInputCommandInteraction, ComponentType, inlineCode, Interaction, InteractionType } from "discord.js";
+import {
+  ChatInputCommandInteraction,
+  ComponentType,
+  inlineCode,
+  Interaction,
+  InteractionType,
+} from "discord.js";
 import Commands from "../cmds";
 
-export async function interactionCreate(interaction: Interaction): Promise<void> {
+export async function interactionCreate(
+  interaction: Interaction
+): Promise<void> {
   if (interaction.type === InteractionType.ApplicationCommand) {
-    const command = Commands.find((command) => command.data.name === interaction.commandName);
+    const command = Commands.find(
+      (command) => command.data.name === interaction.commandName
+    );
 
     if (!command) {
       await interaction.reply({
         ephemeral: true,
-        content: `An error occurred: Unknown application command: ${inlineCode(interaction.commandName)}`,
+        content: `An error occurred: Unknown application command: ${inlineCode(
+          interaction.commandName
+        )}`,
       });
       return;
     }
@@ -20,7 +32,8 @@ export async function interactionCreate(interaction: Interaction): Promise<void>
 
       if (!interaction.isRepliable()) return;
 
-      const message = "An error occurred while executing this command. Please try again later.";
+      const message =
+        "An error occurred while executing this command. Please try again later.";
 
       if (interaction.deferred) {
         await interaction.editReply({
