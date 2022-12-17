@@ -1,18 +1,24 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
-    "outDir": "dist",
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "target": "es6",
-    "lib": ["esnext"],
-    "moduleResolution": "node",
-    "esModuleInterop": true,
+    "lib": ["ES2021"],
     "module": "CommonJS",
+    "target": "ES2021",
+
+    "strict": true,
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "preserveWatchOutput": true,
+    "moduleResolution": "node",
+    "noUncheckedIndexedAccess": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "baseUrl": "./src",
     "paths": {
-      "~/*": ["./src/*"]
+      "@/*": ["./*"]
     }
   }
 }
