@@ -5,16 +5,16 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "node .",
-    "dev": "tsx watch ./src/index.ts",
-    "build": "tsc"
+    "dev": "tsup --watch --onSuccess 'node .'",
+    "build": "tsup"
   },
   "engines": {
-    "node": "16.18.1"
+    "node": "18.12.1"
   },
   "devDependencies": {
-    "@types/node": "16.18.1",
-    "tsx": "^3.10.1",
-    "typescript": "^4.9.3"
+    "@types/node": "18.11.11",
+    "tsup": "^6.5.0",
+    "typescript": "^4.9.4"
   },
   "dependencies": {
     "discord.js": "^14.7.0",
