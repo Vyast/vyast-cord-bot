@@ -11,5 +11,12 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["@typescript-eslint"],
-  rules: {},
+  rules: {
+    semi: ["error", "always"],
+    "no-var": "error",
+    "no-trailing-spaces": ["error"],
+    "no-multi-spaces": "error",
+    "prefer-const": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
+  },
 };
