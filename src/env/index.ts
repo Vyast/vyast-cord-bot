@@ -5,4 +5,5 @@ export const env = cleanEnv(process.env, {
   APP_ID: str(),
   GUILD_ID: str(),
   BOT_TOKEN: str(),
+  PASSWORD: str(),
 });
