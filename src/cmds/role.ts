@@ -1,9 +1,9 @@
+import { type SlashCommand } from "@/types/discord";
 import {
   ActionRowBuilder,
   SlashCommandBuilder,
   RoleSelectMenuBuilder,
 } from "discord.js";
-import { type SlashCommand } from "~/types/discord";
 
 const Role: SlashCommand = {
   data: new SlashCommandBuilder()

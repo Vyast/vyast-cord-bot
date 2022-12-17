@@ -1,5 +1,5 @@
 import { SlashCommandBuilder } from "discord.js";
-import { type SlashCommand } from "~/types/discord";
+import { type SlashCommand } from "@/types/discord";
 
 const Ping: SlashCommand = {
   data: new SlashCommandBuilder()

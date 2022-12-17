@@ -2,7 +2,7 @@ import { ActivityType, Client } from "discord.js";
 
 export async function ready(client: Client<true>) {
   client.user.setPresence({
-    activities: [{ name: "the clouds", type: ActivityType.Watching }],
+    activities: [{ name: "The Clouds", type: ActivityType.Watching }],
     status: "online",
   });
 
