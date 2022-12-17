@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node .",
     "dev": "tsup --watch --onSuccess 'node .'",
+    "lint": "eslint src",
     "build": "tsup"
   },
   "engines": {
