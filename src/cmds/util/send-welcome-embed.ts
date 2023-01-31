@@ -28,12 +28,12 @@ const SendWelcomeEmbed: SlashCommand = {
       .setTitle("Welcome to Vyast Cord")
       .setColor(COLORS.primary)
       .setDescription(
-        `_You're probably not supposed to be here_, but if you are, **click the button below to enter the password and recieve access to the discord :)**\n\nIf you're looking for the n4.gg (vyast.dev) or Venom Anti-Cheat discord server, here you go:\n\nhttps://discord.gg/venomac\nhttps://discord.gg/n4`
+        `_You're probably not supposed to be here_, but if you are, **click the button below to enter the password and receive access to the discord :)**\n\nIf you're looking for the n4.gg (vyast.dev) or Venom Anti-Cheat discord server, here you go:\n\nhttps://discord.gg/venomac\nhttps://discord.gg/n4`
       )
       .setTimestamp()
       .setFooter({
         text: `© Vyast Cord ${new Date().getFullYear()}`,
-        // iconURL: "https://imgur",
+        iconURL: "https://i.imgur.com/IlrJmUv.png",
       });
 
     await interaction.channel!.send({
