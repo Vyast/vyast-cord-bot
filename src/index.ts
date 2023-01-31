@@ -20,7 +20,7 @@ import { ready } from "./events/ready";
 
     console.log(
       "\x1b[32m",
-      `Successfully registered ${data.length} slash commands.`,
+      `Successfully registered ${data?.length} slash commands.`,
       "\x1b[0m"
     );
   } catch (error: any) {
@@ -29,7 +29,7 @@ import { ready } from "./events/ready";
 })();
 
 export const Bot = new Client({
-  intents: [GatewayIntentBits.Guilds],
+  intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers],
 });
 
 Bot.once(Events.ClientReady, ready);

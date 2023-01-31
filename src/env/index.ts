@@ -1,9 +1,11 @@
 import "dotenv/config";
-import { cleanEnv, str } from "envalid";
+import { z } from "zod";
 
-export const env = cleanEnv(process.env, {
-  APP_ID: str(),
-  GUILD_ID: str(),
-  BOT_TOKEN: str(),
-  PASSWORD: str(),
+const envVariables = z.object({
+  NODE_ENV: z.enum(["development", "test", "production"]),
+  APP_ID: z.string(),
+  BOT_TOKEN: z.string(),
+  PASSWORD: z.string(),
 });
+
+export const env = envVariables.parse(process.env);

@@ -1,9 +1,13 @@
 import { Commands } from "@/cmds";
-import { ChatInputCommandInteraction, inlineCode } from "discord.js";
+import {
+  type CacheType,
+  type ChatInputCommandInteraction,
+  inlineCode,
+} from "discord.js";
 
-export const chatInputCommand = async (
-  interaction: ChatInputCommandInteraction
-) => {
+export const chatInputCommandInteraction = async (
+  interaction: ChatInputCommandInteraction<CacheType>
+): Promise<void> => {
   const command = Commands.find(
     (command) => command.data.name === interaction.commandName
   );
@@ -11,7 +15,7 @@ export const chatInputCommand = async (
   if (!command) {
     await interaction.reply({
       ephemeral: true,
-      content: `An error occurred: Unknown application command: ${inlineCode(
+      content: `An error occurred. Unknown application command: ${inlineCode(
         interaction.commandName
       )}`,
     });
@@ -19,7 +23,7 @@ export const chatInputCommand = async (
   }
 
   try {
-    await command.execute(interaction as ChatInputCommandInteraction);
+    await command.execute(interaction);
   } catch (error: any) {
     console.error(`Application command interaction error: ${error.message}`);
 
@@ -34,12 +38,11 @@ export const chatInputCommand = async (
         components: [],
         embeds: [],
       });
-      return;
+    } else if (!interaction.replied) {
+      await interaction.reply({
+        ephemeral: true,
+        content: message,
+      });
     }
-
-    await interaction.reply({
-      content: message,
-      ephemeral: true,
-    });
   }
 };
