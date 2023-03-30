@@ -29,9 +29,6 @@ export const modalSubmitInteraction = async (
 
     await member.roles.add(ROLE_IDS.member, "Entered correct password.");
 
-    await interaction.reply({
-      ephemeral: true,
-      content: "Password correct! Access granted.",
-    });
+    await interaction.editReply("Password correct! Access granted.");
   }
 };
